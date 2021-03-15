@@ -43,29 +43,10 @@ public class EnterPoint {
     public static void doExercises(AbleToAction[] players, Obstacles[] obstacles) {
 
         //  Проходимся по массиву участников
-        for (AbleToAction player : players) {
+        for (Obstacles obstacle : obstacles) {
             //  Проходимся по массиву препятствий
-            for (Obstacles obstacle : obstacles) {
-                //  Выполняем проверку препятствия, если стена - заставляем участника прыгать
-                if (obstacle instanceof Wall) {
-                    if (((AbleToJump) player).isJumping((Wall) obstacle)) {
-                        System.out.println(player.getClass().getSimpleName() + " is jumping over " + ((Wall) obstacle).getHeight() + " meters!!!");
-                    } else {
-                        //  Если участник не может преодолеть препятсвие, остальные препятствия он не проходит
-                        System.out.println("This " + player.getClass().getSimpleName() + " can't jumping so high!!!");
-                        break;
-                    }
-                }
-                //  Выполняем проверку препятствия, если беговая дорожка - заставляем участника бежать
-                if (obstacle instanceof Treadmill) {
-                    if (((AbleToRun) player).isRunning((Treadmill) obstacle)) {
-                        System.out.println(player.getClass().getSimpleName() + " is running over " + ((Treadmill) obstacle).getLength() + " kilometers!!!");
-                    } else {
-                        //  Если участник не может преодолеть препятсвие, остальные препятствия он не проходит
-                        System.out.println("This " + player.getClass().getSimpleName() + " can't running so far!!!");
-                        break;
-                    }
-                }
+            for (AbleToAction player : players) {
+                obstacle.doAction(player);
             }
         }
     }

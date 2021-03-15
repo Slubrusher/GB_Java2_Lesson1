@@ -1,10 +1,11 @@
 package com.geekbrains.java2hw;
 
-public class Human implements AbleToJump, AbleToRun{
+public class Human implements AbleToAction {
 
     //  Объявляем переменные экземпляра для хранения ограничений на бег и прыжок
     private double maxLenghtOfRunning;
     private double maxHeightOfJumping;
+    boolean isLegit = true;
 
     //  Создаем конструктор для инициализации переменных экземпляра
     public Human(double maxLenghtOfRunning, double maxHeightOfJumping) {
@@ -12,16 +13,32 @@ public class Human implements AbleToJump, AbleToRun{
         this.maxHeightOfJumping = maxHeightOfJumping;
     }
 
-    //  Реализуем метод интерфейса AbleToJump
+    //  Реализуем метод интерфейса AbleToAction
     @Override
-    public boolean isJumping(Wall wall) {
-        return maxHeightOfJumping >= wall.getHeight();
+    public void jump(Wall wall) {
+        while (isLegit) {
+            if (maxHeightOfJumping >= wall.getHeight()) {
+                System.out.println("Этот человек перепрыгнул эту стену!!!");
+                break;
+            } else {
+                System.out.println("Этот человек не смог перепрыгнуть эту стену и завершил испытание!!!");
+                isLegit = false;
+            }
+        }
     }
 
-    //  Реализуем метод интерфейса AbleToRun
+    //  Реализуем метод интерфейса AbleToAction
     @Override
-    public boolean isRunning(Treadmill treadmill) {
-        return maxLenghtOfRunning >= treadmill.getLength();
+    public void run(Treadmill treadmill) {
+        while (isLegit) {
+            if (maxLenghtOfRunning >= treadmill.getLength()) {
+                System.out.println("Этот человек пробежал этот кросс!!!");
+                break;
+            } else {
+                System.out.println("Этот человек не смог пробежать этот кросс и завершил испытание!!!");
+                isLegit = false;
+            }
+        }
     }
 
 }
