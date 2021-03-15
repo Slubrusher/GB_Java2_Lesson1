@@ -40,5 +40,4 @@ public class Human implements AbleToAction {
             }
         }
     }
-
 }
