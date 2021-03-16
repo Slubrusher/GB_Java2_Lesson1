@@ -5,12 +5,12 @@ public class EnterPoint {
     public static void main(String[] args) {
 
         //  Создаем участников испытания
-        Human human1 = new Human(10, 1);
-        Human human2 = new Human(5, 0.5);
-        Cat cat1 = new Cat(1, 3);
-        Cat cat2 = new Cat(2, 4);
-        Robot robot1 = new Robot(30, 5);
-        Robot robot2 = new Robot(20, 4);
+        Human human1 = new Human(10, 1, "Владимир");
+        Human human2 = new Human(5, 0.5, "Александр");
+        Cat cat1 = new Cat(1, 3, "Барсик");
+        Cat cat2 = new Cat(2, 4, "Мурзик");
+        Robot robot1 = new Robot(30, 5, "Т-800");
+        Robot robot2 = new Robot(20, 4, "Т-1000");
 
         //  Объявляем и инициализируем массив с участниками
         AbleToAction[] players = new AbleToAction[6];
@@ -43,9 +43,9 @@ public class EnterPoint {
     public static void doExercises(AbleToAction[] players, Obstacles[] obstacles) {
 
         //  Проходимся по массиву участников
-        for (Obstacles obstacle : obstacles) {
+        for (AbleToAction player : players) {
             //  Проходимся по массиву препятствий
-            for (AbleToAction player : players) {
+            for (Obstacles obstacle : obstacles) {
                 obstacle.doAction(player);
             }
         }

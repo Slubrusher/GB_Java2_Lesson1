@@ -6,11 +6,13 @@ public class Human implements AbleToAction {
     private double maxLenghtOfRunning;
     private double maxHeightOfJumping;
     boolean isLegit = true;
+    String name;
 
     //  Создаем конструктор для инициализации переменных экземпляра
-    public Human(double maxLenghtOfRunning, double maxHeightOfJumping) {
+    public Human(double maxLenghtOfRunning, double maxHeightOfJumping, String name) {
         this.maxLenghtOfRunning = maxLenghtOfRunning;
         this.maxHeightOfJumping = maxHeightOfJumping;
+        this.name = name;
     }
 
     //  Реализуем метод интерфейса AbleToAction
@@ -18,10 +20,10 @@ public class Human implements AbleToAction {
     public void jump(Wall wall) {
         while (isLegit) {
             if (maxHeightOfJumping >= wall.getHeight()) {
-                System.out.println("Этот человек перепрыгнул эту стену!!!");
+                System.out.println(name + " перепрыгнул эту стену!!!");
                 break;
             } else {
-                System.out.println("Этот человек не смог перепрыгнуть эту стену и завершил испытание!!!");
+                System.out.println(name + " не смог перепрыгнуть эту стену и завершил испытание!!!");
                 isLegit = false;
             }
         }
@@ -32,10 +34,10 @@ public class Human implements AbleToAction {
     public void run(Treadmill treadmill) {
         while (isLegit) {
             if (maxLenghtOfRunning >= treadmill.getLength()) {
-                System.out.println("Этот человек пробежал этот кросс!!!");
+                System.out.println(name + " пробежал этот кросс!!!");
                 break;
             } else {
-                System.out.println("Этот человек не смог пробежать этот кросс и завершил испытание!!!");
+                System.out.println(name + " не смог пробежать этот кросс и завершил испытание!!!");
                 isLegit = false;
             }
         }
