@@ -1,6 +1,6 @@
-package com.geekbrains.java2hw;
+package lesson1.com.geekbrains.java2hw;
 
-public class Wall implements Obstacles{
+public class Wall implements Obstacles {
 
     //  Объявлеяем переменную экземпляра для хранения длины препятствия
     private double height;

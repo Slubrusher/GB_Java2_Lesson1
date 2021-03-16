@@ -1,4 +1,4 @@
-package com.geekbrains.java2hw;
+package lesson1.com.geekbrains.java2hw;
 
 public class Cat implements AbleToAction {
 
