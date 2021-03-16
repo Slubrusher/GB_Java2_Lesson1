@@ -1,4 +1,4 @@
-package com.geekbrains.java2hw;
+package lesson1.com.geekbrains.java2hw;
 
 //  Создаем дополнительный интерфейс для объединения всех препятствий в один массив
 public interface Obstacles {
