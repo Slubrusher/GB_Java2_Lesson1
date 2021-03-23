@@ -49,7 +49,9 @@ public class EnterPoint {
     //  Вывода слова и количества повторений данного слова в массиве
     public static void findEqualsWordsInArray(String[] array) {
         Map<String, Integer> hashMap = new HashMap<>();
-        Arrays.stream(array).forEach(word -> hashMap.merge(word, 1, Integer::sum));
+        for (String word : array) {
+            hashMap.merge(word, 1, Integer::sum);
+        }
         System.out.printf("В массиве %d уникальных значений\n", hashMap.size());
         System.out.println("В массиве каждое слово, повторяется " + hashMap + " раз\n");
     }
